@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300..600;9..144,1,300..600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --brand: #445066;
+    --brand-deep: #14181c;
+    --accent-orange: #9c7d3e;
+    --accent-orange-soft: #b89a5e;
+    --background: #f6f3ec;
+    --foreground: #14181c;
+    --ink: #14181c;
+    --ink-soft: #445066;
+    --surface: #eae6dd;
+    --surface-alt: #e0dbcd;
+    --card: #f6f3ec;
+    --card-foreground: var(--ink);
+    --border: #c9c3b6;
+    --ring: var(--brand);
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .container-px {
+    padding-inline: clamp(1.25rem, 5vw, 4rem);
+  }
+
+  .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brand);
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    display: inline-flex;
+  }
+
+  .btn-primary {
+    background: var(--accent-orange);
+    color: #fff;
+    letter-spacing: -0.01em;
+    box-shadow: 0 6px 24px -12px color-mix(in oklab, var(--accent-orange) 40%, transparent);
+    border-radius: 999px;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.95rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: inline-flex;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-orange-soft);
+  }
+
+  .line-clamp-3 {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: 40s linear infinite marquee;
+  }
+
+  .animate-rise {
+    animation: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards rise;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translate(0);
+    }
+    100% {
+      transform: translate(-50%);
+    }
+  }
+
+  @keyframes rise {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
